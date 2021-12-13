@@ -4,7 +4,7 @@ function App () {
     let password = '';
 
     function handleChangeInput(e) {
-        let id = e.target.id;
+        let id = e.target.name;
         
         if (id === 'email') {
             email = e.target.value;
@@ -16,12 +16,9 @@ function App () {
     function handleSubmit (e) {
         e.preventDefault();
 
-        if (email.length && password.length) {
+        if (email.trim().length && password.trim().length) {
             console.log({ email, password });
-            email = '';
-            password = '';
-            document.querySelector('#email').value = email;
-            document.querySelector('#password').value = password;
+            document.querySelector('form').reset();
         } else {
             alert('Заполните, пожалуйста, обязательные поля');
         }
@@ -31,11 +28,11 @@ function App () {
         <form onSubmit={handleSubmit}>
             <div className="input-wrap">
                 <label htmlFor="input-1">E-Mail</label>
-                <input type="text" placeholder="Please, entry your e-mail" id="email" onChange={handleChangeInput} />
+                <input type="text" placeholder="Please, entry your e-mail" name="email" id="input-1" onChange={handleChangeInput} />
             </div>
             <div className="input-wrap">
                 <label htmlFor="input-2">Passsword</label>
-                <input type="password" placeholder="Please, entry your password" id="password" onChange={handleChangeInput} />
+                <input type="password" placeholder="Please, entry your password" name="password" id="input-2" onChange={handleChangeInput} />
             </div>
             <div className="button-wrap">
                 <button type="submit">Sign in</button>
