@@ -16,11 +16,12 @@ function App () {
     function handleSubmit (e) {
         e.preventDefault();
 
-        if (email.trim().length && password.trim().length) {
-            console.log({ email, password });
+        if (email.trim() && password.trim()) {
             document.querySelector('form').reset();
+            email = '';
+            password = '';
         } else {
-            alert('Заполните, пожалуйста, обязательные поля');
+            alert('Please fill in the required fields');
         }
     }
 
