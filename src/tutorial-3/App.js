@@ -26,7 +26,7 @@ function App () {
         },
     ];
 
-    let [activeId, setActiveId] = React.useState();
+    const [activeId, setActiveId] = React.useState();
 
     function handleTabClick(id) {
         setActiveId(id);
